@@ -1,184 +1,155 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </head>
+
 <body>
 
 
-<div style="text-align: center">
-    <h3>{{message}}</h3>
-</div>
-<div class="container">
-    <div class="row">
-        <br/>
+    <div style="text-align: center">
+        <h3>{{message}}</h3>
     </div>
-    <div class="well well-lg">
-        <h4 style="color:rgb(121,98,226,0.705)">
-            Employee Portal
-        </h4>
+    <div class="container">
         <div class="row">
             <br/>
         </div>
-        <div class="well well-sm" style="background-color:rgb(121,98,226,0.705);color:#fff;"></div>
-<form class="form-horizontal" autocomplete="off">
-    <div class="stepwizard" style="width:1000px">
-        
-        <div class="col-xs-3">
-            <div class="step" [ngClass]="{'active':step == 1}">
-                <a (click) ="!flag ? step=1 :''" class="nav-link" id="v-pills-messages-tab" data-toggle="pill" role="tab"
-                arial-controls="v-pills-home" aria-selected="false">
-                Register Here
-            </a>
+        <div class="well well-lg">
+            <h4 style="color:rgb(121,98,226,0.705)">
+                Employee Portal
+            </h4>
+            <div class="row">
+                <br/>
             </div>
-        </div>
-        <div class="col-xs-3">
-            <div class="step" [ngClass]="{'active':step == 2}">
-                <a (click) ="!flag ? step=2 :''" class="nav-link" id="v-pills-messages-tab" data-toggle="pill" role="tab"
-                arial-controls="v-pills-home" aria-selected="false">
-                View Employee Details
-            </a>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <br/>
-    </div>
-    <div class="row">
-        <br/>
-    </div>
-    <div *ngIf = "step == 1">
-        
-    <div class="container py-3">
-        <div class="row">
-            <div class="mx-auto col-sm-6">
-                        <!-- form user info -->
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="mb-0">Employee Portal</h4>
-                            </div>
-                            <div class="card-body">
-                                <form class="form" role="form" autocomplete="off">
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">First Name</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="text" value="" [(ngModel)]="employee.firstName"[ngModelOptions]="{standalone:true}">
-                                        </div>
+            <div class="well well-sm" style="background-color:rgb(121,98,226,0.705);color:#fff;"></div>
+            <form class="form-horizontal" autocomplete="off">
+                <div class="stepwizard" style="width:1000px">
+
+                    <div class="col-xs-3">
+                        <div class="step" [ngClass]="{'active':step == 1}">
+                            <a (click)="!flag ? step=1 :''" class="nav-link" id="v-pills-messages-tab" data-toggle="pill" role="tab" arial-controls="v-pills-home"
+                                aria-selected="false">
+                                <input type="button" class="btn btn-primary" value="Register Here">
+
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="step" [ngClass]="{'active':step == 2}">
+                            <a (click)="!flag ? step=2 :''" class="nav-link" id="v-pills-messages-tab" data-toggle="pill" role="tab" arial-controls="v-pills-home"
+                                aria-selected="false">
+                                <input type="button" class="btn btn-primary" value="View Employee Details" (click)=view()>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <br/>
+                </div>
+                <div class="row">
+                    <br/>
+                </div>
+                <div *ngIf="step == 1">
+
+                    <div class="container py-3">
+                        <div class="row">
+                            <div class="mx-auto col-sm-6">
+                                <!-- form user info -->
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="mb-0">Employee Portal</h4>
                                     </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Last Name</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="text" value="" [(ngModel)]="employee.lastName"[ngModelOptions]="{standalone:true}">
-                                        </div>
+                                    <div class="card-body">
+                                        <form class="form" role="form" autocomplete="off">
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label form-control-label">First Name</label>
+                                                <div class="col-lg-9">
+                                                    <input class="form-control" type="text" value="" [(ngModel)]="employee.firstName" [ngModelOptions]="{standalone:true}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label form-control-label">Last Name</label>
+                                                <div class="col-lg-9">
+                                                    <input class="form-control" type="text" value="" [(ngModel)]="employee.lastName" [ngModelOptions]="{standalone:true}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label form-control-label">Gender</label>
+                                                <div class="col-lg-9">
+                                                    <input class="form-control" type="text" value="" [(ngModel)]="employee.gender" [ngModelOptions]="{standalone:true}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label form-control-label">Date of Birth</label>
+                                                <div class="col-lg-9">
+                                                    <input class="form-control" type="date" value="" [(ngModel)]="employee.dateOfBirth" [ngModelOptions]="{standalone:true}">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label form-control-label">Department</label>
+                                                <div class="col-lg-9">
+                                                    <input class="form-control" type="text" value="" [(ngModel)]="employee.department" [ngModelOptions]="{standalone:true}">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label form-control-label"></label>
+                                                <div class="col-lg-9">
+                                                    <input type="reset" class="btn btn-secondary" value="Cancel" (click)=cleardata()>
+                                                    <input type="button" class="btn btn-primary" value="Submit" (click)=onSubmit()>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Gender</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="text" value=""[(ngModel)]="employee.gender"[ngModelOptions]="{standalone:true}">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Date of Birth</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="date" value="" [(ngModel)]="employee.dateOfBirth"[ngModelOptions]="{standalone:true}">
-                                        </div>
-                                    </div>
-                                    
-                                    
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Department</label>
-                                        <div class="col-lg-9">
-                                            <input class="form-control" type="text" value="" [(ngModel)]="employee.department" [ngModelOptions]="{standalone:true}">
-                                        </div>
-                                    </div>
-                                    
-                                    
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label"></label>
-                                        <div class="col-lg-9">
-                                            <input type="reset" class="btn btn-secondary" value="Cancel" (click)=cleardata()>
-                                            <input type="button" class="btn btn-primary" value="Submit" (click)=onSubmit()>
-                                        </div>
-                                    </div>
-                                </form>
+                                </div>
+                                <!-- /form user info -->
                             </div>
                         </div>
-                        <!-- /form user info -->
-            </div>
-        </div>
-    </div>
-  
- 
-
-
-    </div>
-    <div *ngIf="step == 2">
-        <div class ="form-group row">
-            <label class = "col-lg-3 col-form-lebel form-control-label"></label>
-                <div class="col-lg-9">
-                    <input type="button" class="btn btn-primary" value ="View" (click)=view()>
-
+                    </div>
                 </div>
-            
-        </div>
-        <div class="container">
-            <div class="container">
-                <div class="row col-md-6 col-md-offset-2 custyle">
-                    <table class="table table-striped custab">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor = "let employee of emp">
-                                <td>{{emp.id}}</td>
-                                <td>{{emp.firstName}}</td>
-                                <td>{{emp.lastName}}</td>
-                                <td>{{emp.gender}}</td>
-                                <td>{{emp.dateOfBirth}}</td>
-                                <td>{{emp.department}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div *ngIf="step == 2">
+                    <div class="container">
+                        <div class="container">
+                            <div class="row col-md-6 col-md-offset-2 custyle">
+                                <table class="table table-striped custab">
+                                    <thead>
+                                        <tr>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Gender</th>
+                                            <th>DateOfBirth</th>
+                                            <th>Department</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let employee of emp">
+                                            <td>{{employee.firstName}}</td>
+                                            <td>{{employee.lastName}}</td>
+                                            <td>{{employee.gender}}</td>
+                                            <td>{{employee.dateOfBirth}}</td>
+                                            <td>{{employee.department}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </form>
+
+
         </div>
     </div>
-</form>
-
-
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
- 
-
 </body>
+
 </html>
