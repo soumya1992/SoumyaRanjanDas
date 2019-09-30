@@ -6,11 +6,11 @@ import { EmployeeService } from "./employeeService";
 @Component({
     selector: 'app-root',
     templateUrl: "/app.employeeComponent.html",
-    styleUrls:['/app.employeeComponent.css'],
+    styleUrls: ['/app.employeeComponent.css'],
     providers: [services.EmployeeService]
 })
 export class EmployeeComponent implements OnInit {
-    employee:Employee = new Employee("","","","","");
+    employee: Employee = new Employee("", "", "", "", "");
     message: any;
     emp: any;
     constructor(private employeeService: services.EmployeeService) {
@@ -43,6 +43,6 @@ export class EmployeeComponent implements OnInit {
         console.log(this.emp)
         let resp = this.employeeService.getEmployee();
         resp.subscribe((data) => this.emp = data)
-        
+
     }
 }
