@@ -34,12 +34,10 @@ export class EmployeeComponent implements OnInit {
         this.initializeModel;
     }
     onSubmit(Employee: any) {
-        console.log(this.employee)
         this.employeeService.postEmployee(this.employee)
             .subscribe((data: any) => this.message = data)
     }
     view() {
-        console.log("test")
         console.log(this.emp)
         let resp = this.employeeService.getEmployee();
         resp.subscribe((data) => this.emp = data)
