@@ -26,7 +26,7 @@ public class EmployeeController {
 	@Autowired
 	EmployeeService service;
 
-	@RequestMapping(value = "/getemployee",method=RequestMethod.GET, consumes = { "application/json" }, produces = { "application/json" })
+	@RequestMapping(value = "/getemployee",method=RequestMethod.GET, produces = { "application/json" })
 	public ResponseEntity<List<EmployeeModel>> getAllEmployee() {
 		List<EmployeeModel> list = service.getAllEmployeeService();
 		return new ResponseEntity<List<EmployeeModel>>(list, new HttpHeaders(), HttpStatus.OK);
